@@ -31,7 +31,7 @@ Plasticine is a facial deformation application based on face recognition, made b
 
 ## Run demo
 ```
- // Be patient, the first frame needs to be initialized, the test case only processes one frame, so it may take a few seconds, You can also optimize, use your GPU, or add multi-threading
+ // The first frame needs to be initialized, so it may take a few seconds
  python slim_demo.py
 ```
 
@@ -43,12 +43,12 @@ Plasticine is a facial deformation application based on face recognition, made b
 If you have problem starting up on macOS, you can check this [wxPythonVirtualenvOnMac](https://wiki.wxpython.org/wxPythonVirtualenvOnMac)
 
 
-# Face photo source
+## Face photo source
 All test images are from this website, Click to view [AI Generate Face](https://generated.photos/faces/)
 
 ## Screenshots
 
-##【Face detection1】
+## 【Face detection1】
 
 Get the key points of the face (face deformation is based on the key points)
 <img src='images/face.gif'  width='800' title='MeowShop, online shopping site'>
