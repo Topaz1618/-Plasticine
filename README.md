@@ -1,4 +1,4 @@
-<img src='images/Plasticine.png' width='400' title='Plasticine, A facial deformation application'>
+<img src='images/logo.png' width='400' title='Plasticine, A facial deformation application'>
 
 Plasticine is a facial deformation application based on face recognition, made by [Topaz](https://topaz1618.github.io/about)([Website](http://topazaws.com/)|[Blog](https://topaz1618.github.io/blog/))
 
@@ -50,7 +50,7 @@ Click to view [AI Generate Face](https://generated.photos/faces/)
 
 ##【Face detection1】
 Get the key points of the face (face deformation is based on the key points)
-<img src='static/images/face.gif'  width='800' title='MeowShop, online shopping site'>
+<img src='images/face.gif'  width='800' title='MeowShop, online shopping site'>
 
 ## 【Result1】
 <img src='static/images/store222.gif'  width='800' title='MeowShop, online shopping site'>
