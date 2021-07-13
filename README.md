@@ -37,29 +37,26 @@ Plasticine is a facial deformation application based on face recognition, made b
 
 ## Run clinet
 ```
- // Ubuntu or macOS
  python slim_client.py
-
 ```
-If you have problem starting up on macOS, you can check this [wxPythonVirtualenvOnMac] (https://wiki.wxpython.org/wxPythonVirtualenvOnMac)
 
+If you have problem starting up on macOS, you can check this [wxPythonVirtualenvOnMac](https://wiki.wxpython.org/wxPythonVirtualenvOnMac)
+
+
+# Face photo source
+Click to view [AI Generate Face](https://generated.photos/faces/)
 
 ## Screenshots
 
-## 【Store1】
+## 【Result1】
 <img src='static/images/store222.gif'  width='800' title='MeowShop, online shopping site'>
 
-## 【Store2】
+## 【Result2】
 <img src='static/images/store22.gif'  width='800' title='MeowShop, online shopping site'>
 
-## 【Payment】
+## 【Result3】
 <img src='static/images/pay.gif'  width='800' title='MeowShop, online shopping site'>
 
-## 【Backstage1】
-<img src='static/images/backstage.png'  width='800' title='MeowShop, online shopping site'>
-
-## 【Backstage2】
-<img src='static/images/backstage2.png'  width='800' title='MeowShop, online shopping site'>
 
 
 ## License
