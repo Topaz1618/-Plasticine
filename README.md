@@ -1,27 +1,27 @@
-<img src='static/images/meowshop.png' width='400' title='Plasticine, A facial deformation application'>
+<img src='static/images/Plasticine.png' width='400' title='Plasticine, A facial deformation application'>
 
 Plasticine is a facial deformation application based on face recognition, made by [Topaz](https://topaz1618.github.io/about)([Website](http://topazaws.com/)|[Blog](https://topaz1618.github.io/blog/))
 
-[Chinese README](https://github.com/Topaz1618/MeowShop/blob/master/README_CN.md)
+[Chinese README](https://github.com/Topaz1618/Plasticine/blob/master/README_CN.md)
 
 
 # Features:
-- Support real-time adjustment
+- Support for obtaining key points of the face
 - Support deformation of cheeks, chin, cheekbones
 
 
 # Environment
 - Python3
-- wxPython
 - tensorflow==1.15.0
 - OpenCV
 - Ubuntu16.04/macOS
+- wxPython
 
 
 ## Installation (Ubuntu & Mac OS)
-1. Download MeowFile
+1. Download Plasticine
 ```
- git clone git@github.com:Topaz1618/MeowShop.git
+ git clone git@github.com:Topaz1618/Plasticine.git
 ```
 
 2. Install dependencies
@@ -47,6 +47,10 @@ If you have problem starting up on macOS, you can check this [wxPythonVirtualenv
 Click to view [AI Generate Face](https://generated.photos/faces/)
 
 ## Screenshots
+
+##【Face detection1】
+Get the key points of the face (face deformation is based on the key points)
+<img src='static/images/face.gif'  width='800' title='MeowShop, online shopping site'>
 
 ## 【Result1】
 <img src='static/images/store222.gif'  width='800' title='MeowShop, online shopping site'>
