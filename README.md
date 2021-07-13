@@ -44,7 +44,7 @@ If you have problem starting up on macOS, you can check this [wxPythonVirtualenv
 
 
 # Face photo source
-Click to view [AI Generate Face](https://generated.photos/faces/)
+All test images are from this website, Click to view [AI Generate Face](https://generated.photos/faces/)
 
 ## Screenshots
 
