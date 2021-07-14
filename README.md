@@ -40,11 +40,14 @@ Plasticine is a facial deformation application based on face recognition, made b
  python slim_client.py
 ```
 
-If you have problem starting up on macOS, you can check this [wxPythonVirtualenvOnMac](https://wiki.wxpython.org/wxPythonVirtualenvOnMac)
-
 
 ## Face photo source
 All test images are from this website, Click to view [AI Generate Face](https://generated.photos/faces/)
+<img src='images/faces.png'  width='800' >
+
+You will get a photo with watermark as below。
+<img src='images/face_demo.png'  width='800' >
+
 
 ## Screenshots
 
@@ -72,6 +75,13 @@ Push all parts of the face inward
 
 <img src='images/slim.gif'  width='800' title='MeowShop, online shopping site'>
 
+
+## TODO
+- [x] Add wxPython, support graphical interface to adjust face deformation, and view the effect in real time
+
+```
+ If you have problem starting up on macOS, you can check this [wxPythonVirtualenvOnMac](https://wiki.wxpython.org/wxPythonVirtualenvOnMac)
+```
 
 ## License
 Licensed under the MIT license
