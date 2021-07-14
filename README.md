@@ -70,7 +70,7 @@ Push all parts of the face inward
 
 
 ## TODO
-- [] Add wxPython, support graphical interface to adjust face deformation, and view the effect in real time
+- [ ] Add wxPython, support graphical interface to adjust face deformation, and view the effect in real time
 
 
 ## License
