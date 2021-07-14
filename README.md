@@ -28,12 +28,11 @@ Plasticine is a facial deformation application based on face recognition, made b
  pip install -r requirements.txt
 ```
 
-## Run face morphing program
+## Run 
 ```
  python slim_face.py
 ```
 
-## Run
 
 ## Face photo source
 All test images are from this website, Click to view [AI Generate Face](https://generated.photos/faces/)
