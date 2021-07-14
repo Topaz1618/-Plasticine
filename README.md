@@ -1,4 +1,4 @@
-<img src='images/logo.png' width='400' title='Plasticine, A facial deformation application'>
+<img src='images/logo.png' width='600' title='Plasticine, A facial deformation application'>
 
 Plasticine is a facial deformation application based on face recognition, made by [Topaz](https://topaz1618.github.io/about)([Website](http://topazaws.com/)|[Blog](https://topaz1618.github.io/blog/))
 
@@ -28,7 +28,7 @@ Plasticine is a facial deformation application based on face recognition, made b
  pip install -r requirements.txt
 ```
 
-## Run 
+## Run
 ```
  python slim_face.py
 ```
