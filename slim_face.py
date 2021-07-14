@@ -1,3 +1,4 @@
+import sys
 import os
 import cv2
 import glob
@@ -86,7 +87,7 @@ class SlimFace(object):
 
     def generate_slim_part_params(self, lms, face_part):
         if face_part == "cheek":
-            landmark_coordinate = self.generate_landmark_coordinate(lms, 3, 5, 13, 11, 29) # Original key Point: 3, 5, 13, 15, 30
+            landmark_coordinate = self.generate_landmark_coordinate(lms, 3, 5, 13, 11, 33) # Original key Point: 3, 5, 13, 15, 30
         elif face_part == "humerus":
             landmark_coordinate = self.generate_landmark_coordinate(lms, 1, 17, 15, 26, 27)
         elif face_part == "chin":
@@ -132,23 +133,20 @@ class SlimFace(object):
             update_status = (
                 False if ux + uy < face_proportion or math.sqrt(ux * ux + uy * uy) < face_proportion else True)
             # update_status = (False if ux + uy < 30 else True)
-            print("update_status")
+            # print("update_status")
             return update_status
 
     def get_landmark(self, im):
         self.frame += 1
         if self.frame == 1:
             rects = self.s3fd_model.extract(im)
-            print("!!!!!", len(im), im.shape, rects)
             lms = self.landmark_model.extract(im, rects[:1])
-            print(lms)
             c_lms = lms
             self.rects = rects
             self.landmarks = lms
             self.lms_update = True
 
         else:
-            print("!!!!")
             rects = self.s3fd_model.extract(im)
             update_status = self.compare_rects_change(rects)
             if not update_status:
@@ -156,12 +154,13 @@ class SlimFace(object):
                 lms = self.landmarks
                 self.lms_update = False
             else:
-                print("get new lanmark")
                 lms = self.landmark_model.extract(im, rects[:1])
                 c_lms = lms
                 self.rects = rects
                 self.landmarks = lms
                 self.lms_update = True
+
+        print("landmark", lms)
 
         return rects, c_lms, lms, self.lms_update
 
@@ -188,7 +187,11 @@ class SlimFace(object):
             ratio = (dradius - distance) / (dradius - distance + ddmc)
             ratio = s * ratio * ratio
             UX, UY = i - ratio * (endX - landmark_x), j - ratio * (endY - landmark_y)
-            copy_im[j, i] = self.BilinearInsert(im, UX, UY)
+
+            if j <= 255 and i <=  255:
+                copy_im[j, i] = self.BilinearInsert(im, UX, UY)
+            else:
+                print(f"Ignore wrong coordinate: [{j} , {i}]")
         return copy_im
 
     def localTranslationWarp(self, im, slim_part):
@@ -234,12 +237,11 @@ class SlimFace(object):
                 if cp - self.cp > 0.3:
                     cp = self.cp + 0.3
             self.cp = cp
-            print("left >>>", cp)
+            # print("left >>>", cp)
             if compare_face > 0:
                 current_power = self.slim_strength_copy['cheek'][0] + cp
                 self.slim_strength['cheek'][0] = current_power
             elif compare_face < 0:
-                print("wtf")
                 current_power = self.slim_strength_copy['cheek'][1]
                 self.slim_strength['cheek'][1] = current_power + cp
 
@@ -256,7 +258,6 @@ class SlimFace(object):
         humerus_im = self.localTranslationWarp(cheek_im, 'humerus')
         chin_im = self.localTranslationWarp(humerus_im, 'chin')
         im = cv2.resize(chin_im, (w, h))
-        cv2.imwrite("A.jpg", im)
         return im
 
 
@@ -279,30 +280,31 @@ def put_frame():
         # out.write(res)
 
 
-def put_img():
-    idx  = 0
-    for i in range(5):
+def put_img(cheek_strength, humerus_strength, chin_strength):
+    for i in range(12):
         im = cv2.imread("data_input/test_face{}.png".format(i+1))
-        slim.set_slim_strength(
-            cheek_strength=1.6,
-            humerus_strength=0.2,
-            chin_strength=2.2)
+        slim.set_slim_strength(cheek_strength, humerus_strength, chin_strength)
         res_im = slim.slim_handler(im)
         image = np.concatenate((im, res_im), axis=1)
-        cv2.imwrite("./data_output/slim_face{}.jpg".format(i), image)
-
-        cv2.imshow("slim face", image)
-        sleep(1)
+        cv2.imwrite("./data_output/deformation_face{}.jpg".format(i), image)
+        cv2.imshow("face", image)
         cv2.waitKey(1)
-
-        idx += 1
-
 
 
 if __name__ == "__main__":
     # file_list = os.listdir('.')
     # fourcc = cv2.VideoWriter_fourcc(*'XVID')
     # out = cv2.VideoWriter("ssslim.avi", fourcc, 24.0, (1920, 1080))
-    slim = SlimFace()
     # put_frame()
-    put_img()
+
+    slim = SlimFace()
+    if len(sys.argv) == 1:
+        cheek_strength = 1.2
+        humerus_strength = 0.1
+        chin_strength = 1.6
+    else:
+        _, cheek_strength, humerus_strength, chin_strength  = sys.argv
+
+    print("Deformation strength: ", cheek_strength, humerus_strength, chin_strength)
+
+    put_img(cheek_strength, humerus_strength, chin_strength)
