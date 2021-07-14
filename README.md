@@ -54,23 +54,23 @@ Get the key points of the face (face deformation is based on the key points)
 <img src='images/face.gif'  width='800' title='MeowShop, online shopping site'>
 
 ## 【Result1】
-Push all parts of the face inward
+Cheeks become larger and the chin becomes smaller
 
-<img src='static/images/slim.gif'  width='800' title='MeowShop, online shopping site'>
+<img src='images/smile.gif'  width='800' title='MeowShop, online shopping site'>
+
 
 ## 【Result2】
 
 Pull all parts of the face outward
 
-<img src='static/images/slim_face3.gif'  width='800' title='MeowShop, online shopping site'>
+<img src='images/slim_face3.gif'  width='800' title='MeowShop, online shopping site'>
 
 
 ## 【Result3】
 
-Cheeks become larger and the chin becomes smaller
+Push all parts of the face inward
 
-<img src='static/images/smile.gif'  width='800' title='MeowShop, online shopping site'>
-
+<img src='images/slim.gif'  width='800' title='MeowShop, online shopping site'>
 
 
 ## License
