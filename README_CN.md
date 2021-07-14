@@ -55,29 +55,29 @@ Plasticine is a facial deformation application based on face recognition, made b
 ## 【Face detection1】
 
 Get the key points of the face (face deformation is based on the key points)
-<img src='images/face.gif'  width='800' title='MeowShop, online shopping site'>
+<img src='images/face.gif'  width='800' >
 
 ## 【Result1】
 一部分向内，一部分向外
 
-<img src='images/smile.gif'  width='800' title='MeowShop, online shopping site'>
+<img src='images/smile.gif'  width='800' >
 
 
 ## 【Result2】
 
 脸部向外推
 
-<img src='images/slim_face3.jpg'  width='800' title='MeowShop, online shopping site'>
+<img src='images/slim_face3.jpg'  width='800' >
 
 
 ## 【Result3】
 
 脸部向内推
-<img src='images/slim.gif'  width='800' title='MeowShop, online shopping site'>
+<img src='images/slim.gif'  width='800' >
 
 
 ## TODO
-- [x] 图形界面
+- [] 图形界面
 
 ## License
 Licensed under the MIT license
