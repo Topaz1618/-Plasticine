@@ -63,7 +63,7 @@ Cheeks become larger and the chin becomes smaller
 
 Pull all parts of the face outward
 
-<img src='images/slim_face3.gif'  width='800' title='MeowShop, online shopping site'>
+<img src='images/slim_face3.jpg'  width='800' title='MeowShop, online shopping site'>
 
 
 ## 【Result3】
