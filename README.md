@@ -54,9 +54,9 @@ Get the key points of the face (face deformation is based on the key points)
 <img src='images/face.gif'  width='800' title='MeowShop, online shopping site'>
 
 ## 【Result1】
+Push all parts of the face inward
 
-
-<img src='static/images/store222.gif'  width='800' title='MeowShop, online shopping site'>
+<img src='static/images/slim.gif'  width='800' title='MeowShop, online shopping site'>
 
 ## 【Result2】
 
