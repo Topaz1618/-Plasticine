@@ -35,10 +35,10 @@ Plasticine is a facial deformation application based on face recognition, made b
 
 
 ## Face photo source
-All test images are from this website, Click to view [AI Generate Face](https://generated.photos/faces/)
+- All test images are from this website, Click to view [AI Generate Face](https://generated.photos/faces/)
 <img src='images/faces.png'  width='800' >
 
-You will get photos like the following, and of course there will be a watermark on them .
+- You will get photos like the following, and of course there will be a watermark on them .
 <img src='images/face_demo.png'  width='400' >
 
 
@@ -46,26 +46,19 @@ You will get photos like the following, and of course there will be a watermark 
 
 ## 【Face detection1】
 
-Get the key points of the face (face deformation is based on the key points)
+- Get the key points of the face (face deformation is based on the key points)
 <img src='images/face.gif'  width='800' >
 
-## 【Result1】
-Cheeks become larger and the chin becomes smaller
-
+## 【Facial deformation result 1】
+- Push cheeks outward, chin inward
 <img src='images/smile.gif'  width='800' >
 
 
-## 【Result2】
-
-Pull all parts of the face outward
-
+## 【Facial deformation result 2】
 <img src='images/slim_face3.jpg'  width='800'>
 
 
-## 【Result3】
-
-Push all parts of the face inward
-
+## 【Facial deformation result 3】
 <img src='images/slim.gif'  width='800' >
 
 
