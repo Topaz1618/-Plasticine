@@ -86,11 +86,11 @@ class SlimFace(object):
 
     def generate_slim_part_params(self, lms, face_part):
         if face_part == "cheek":
-            landmark_coordinate = self.generate_landmark_coordinate(lms, 3, 5, 13, 15, 30)
+            landmark_coordinate = self.generate_landmark_coordinate(lms, 3, 5, 13, 11, 29) # Original key Point: 3, 5, 13, 15, 30
         elif face_part == "humerus":
             landmark_coordinate = self.generate_landmark_coordinate(lms, 1, 17, 15, 26, 27)
         elif face_part == "chin":
-            landmark_coordinate = self.generate_landmark_coordinate(lms, 5, 7, 11, 13, 33)
+            landmark_coordinate = self.generate_landmark_coordinate(lms, 5, 7, 11, 9, 33) # Original key Point: 5, 7, 11, 13, 33
 
         self.landmark_coordinate_list[face_part] = landmark_coordinate
 
@@ -139,12 +139,16 @@ class SlimFace(object):
         self.frame += 1
         if self.frame == 1:
             rects = self.s3fd_model.extract(im)
+            print("!!!!!", len(im), im.shape, rects)
             lms = self.landmark_model.extract(im, rects[:1])
+            print(lms)
             c_lms = lms
             self.rects = rects
             self.landmarks = lms
             self.lms_update = True
+
         else:
+            print("!!!!")
             rects = self.s3fd_model.extract(im)
             update_status = self.compare_rects_change(rects)
             if not update_status:
@@ -252,6 +256,7 @@ class SlimFace(object):
         humerus_im = self.localTranslationWarp(cheek_im, 'humerus')
         chin_im = self.localTranslationWarp(humerus_im, 'chin')
         im = cv2.resize(chin_im, (w, h))
+        cv2.imwrite("A.jpg", im)
         return im
 
 
@@ -276,15 +281,15 @@ def put_frame():
 
 def put_img():
     idx  = 0
-    for i in range(3):
-        im = cv2.imread("test{}.jpg".format(i))
+    for i in range(5):
+        im = cv2.imread("data_input/test_face{}.png".format(i+1))
         slim.set_slim_strength(
-            cheek_strength=-3.0,
-            humerus_strength=-0.2,
-            chin_strength=2)
+            cheek_strength=1.6,
+            humerus_strength=0.2,
+            chin_strength=2.2)
         res_im = slim.slim_handler(im)
         image = np.concatenate((im, res_im), axis=1)
-        cv2.imwrite("./data_output/slim{}.jpg".format(i), image)
+        cv2.imwrite("./data_output/slim_face{}.jpg".format(i), image)
 
         cv2.imshow("slim face", image)
         sleep(1)

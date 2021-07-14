@@ -18,7 +18,7 @@ Plasticine is a facial deformation application based on face recognition, made b
 - wxPython
 
 
-## Installation (Ubuntu & Mac OS)
+## Installation (Ubuntu & macOS)
 1. Download Plasticine
 ```
  git clone git@github.com:Topaz1618/Plasticine.git

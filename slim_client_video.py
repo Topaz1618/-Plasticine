@@ -8,7 +8,7 @@ import numpy as np
 import cv2
 import wx
 
-from slim_face import SlimFace
+from slim_anywhere_v2 import SlimFace
 
 global_fps = 24
 
@@ -69,8 +69,8 @@ class MainFrame(wx.Frame):
         id = event.GetId()
 
         if id == wx.ID_OPEN:
-            file_wildcard = 'Videos(*.mp4)|*.mp4|*.avi|*.mov'
-            dlg = wx.FileDialog(self, "Open Video...",
+            file_wildcard = 'Videos(*.mp4)|*.mp4|*.avi|*.mov|*.jpg|*.png'
+            dlg = wx.FileDialog(self, "Open Video Or Picture ... ",
                                 os.getcwd(),
                                 style=wx.FD_OPEN | wx.FD_CHANGE_DIR,
                                 wildcard=file_wildcard)
@@ -83,13 +83,13 @@ class MainFrame(wx.Frame):
     def InitUI(self):
         hbox = wx.BoxSizer(wx.HORIZONTAL)
 
-        self.left_panel = wx.Panel(self, size=(200, 450))
+        self.left_panel = wx.Panel(self, size=(300, 600))
         self.create_sliders(self.left_panel)
         self.create_buttons(self.left_panel)
         self.create_next_frame(self.left_panel)
         hbox.Add(self.left_panel, 1, wx.FIXED_MINSIZE)
 
-        self.image_panel = ImagePanel(self, size=(800, 450))
+        self.image_panel = ImagePanel(self, size=(800, 600))
         hbox.Add(self.image_panel, 1, wx.EXPAND)
 
         self.SetSizer(hbox)
@@ -115,20 +115,27 @@ class MainFrame(wx.Frame):
     def create_sliders(self, parent):
         # from ipdb import set_trace; set_trace()
 
+        # for i in range(1):
         for i in range(6):
-            sl = wx.Slider(parent, size=(100, -1), pos=(20, i * 100),
+        #     sl = wx.Slider(parent, size=(100, -1), pos=(60, i * 100),
+        #                    value=0, minValue=-50, maxValue=50,
+        #                    style=wx.SL_HORIZONTAL | wx.SL_LABELS,
+        #                    name=str(i))
+
+            sl = wx.Slider(parent, size=(100, -1), pos=(60, i * 100),
                            value=0, minValue=-50, maxValue=50,
-                           style=wx.SL_HORIZONTAL | wx.SL_LABELS,
+                           style=wx.SL_HORIZONTAL,
                            name=str(i))
-            sl.Bind(wx.EVT_SCROLL_CHANGED, self.OnSliderScroll)
+
+        sl.Bind(wx.EVT_SCROLL_CHANGED, self.OnSliderScroll)
 
     def create_buttons(self, parent):
-        self.eval_button = wx.Button(parent, -1, "RUN", pos=(15, 400))
+        self.eval_button = wx.Button(parent, -1, "RUN", pos=(15, 548))
         self.eval_button.Bind(wx.EVT_BUTTON, self.OnBtnClick)
-        self.msg_text = wx.StaticText(parent, -1, label="", pos=(15, 440))
+        self.msg_text = wx.StaticText(parent, -1, label="", pos=(15, 580))
 
     def create_next_frame(self, parent):
-        self.eval_button1 = wx.Button(parent, -1, "Next", pos=(110, 400))
+        self.eval_button1 = wx.Button(parent, -1, "Next", pos=(110, 548))
         self.eval_button1.Bind(wx.EVT_BUTTON, self.get_next_frame)
 
     def OnSliderScroll(self, e):
@@ -137,6 +144,8 @@ class MainFrame(wx.Frame):
         val = slider.GetValue()
 
         self.slim_params[int(name)] = val
+
+        print("!!!!!!", name, val. self.slim_params)
         self.apply_slim_action()
 
     def apply_slim_action(self):
@@ -186,7 +195,7 @@ class MainFrame(wx.Frame):
 
 def main():
     app = wx.App()
-    frame = MainFrame(None, size=(800 + 200, 450), title='Slim Face')
+    frame = MainFrame(None, size=(1000 + 200, 600), title='Slim Face')
     frame.Centre()
     frame.Show()
 
